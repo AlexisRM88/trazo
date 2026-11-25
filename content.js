@@ -5,6 +5,15 @@
   const MAX_FULLPAGE_CSS_HEIGHT = 15000;
   const CAPTURE_QUOTA_DELAY_MS = 520;
 
+  function t(key, substitutions) {
+    try {
+      const msg = chrome.i18n?.getMessage(key, substitutions);
+      return msg || key;
+    } catch {
+      return key;
+    }
+  }
+
   const state = {
     active: false,
     mode: 'element', // 'element' | 'area'
@@ -84,28 +93,28 @@
           <span class="ts-badge-hint"></span>
         </div>
         <div class="ts-microbar">
-          <button type="button" class="ts-micro-btn" id="ts-pin-parent" title="Subir al contenedor padre (Zoom out)">${ICONS.arrowUp}<span>Padre</span></button>
-          <button type="button" class="ts-micro-btn primary" id="ts-pin-capture" title="Capturar este elemento ahora">${ICONS.camera}<span>Capturar</span></button>
-          <button type="button" class="ts-micro-btn" id="ts-pin-child" title="Bajar al elemento hijo (Zoom in)">${ICONS.arrowDown}<span>Hijo</span></button>
-          <button type="button" class="ts-micro-btn close" id="ts-pin-unpin" title="Soltar selección">${ICONS.close}</button>
+          <button type="button" class="ts-micro-btn" id="ts-pin-parent" title="${t('pinParentTitle')}">${ICONS.arrowUp}<span>${t('pinParent')}</span></button>
+          <button type="button" class="ts-micro-btn primary" id="ts-pin-capture" title="${t('pinCaptureTitle')}">${ICONS.camera}<span>${t('pinCapture')}</span></button>
+          <button type="button" class="ts-micro-btn" id="ts-pin-child" title="${t('pinChildTitle')}">${ICONS.arrowDown}<span>${t('pinChild')}</span></button>
+          <button type="button" class="ts-micro-btn close" id="ts-pin-unpin" title="${t('pinUnpinTitle')}">${ICONS.close}</button>
         </div>
       </div>
 
       <div class="ts-page-popover" id="ts-page-popover">
         <div class="ts-page-popover-title">
-          <span>Capturar página web</span>
-          <button type="button" class="ts-micro-btn close" id="ts-close-page-popover" title="Cerrar">${ICONS.close}</button>
+          <span>${t('pagePopoverTitle')}</span>
+          <button type="button" class="ts-micro-btn close" id="ts-close-page-popover" title="${t('closeTitle')}">${ICONS.close}</button>
         </div>
         <button type="button" class="ts-page-choice" id="ts-capture-viewport">
           <div class="ts-page-choice-main">
-            <span class="ts-page-choice-label" style="display:flex;align-items:center;gap:6px;">${ICONS.monitor}<span>Solo vista actual</span></span>
+            <span class="ts-page-choice-label" style="display:flex;align-items:center;gap:6px;">${ICONS.monitor}<span>${t('pageViewportLabel')}</span></span>
             <span class="ts-page-choice-sub" id="ts-viewport-dims">1440 × 900 px</span>
           </div>
           ${ICONS.chevronRight}
         </button>
         <button type="button" class="ts-page-choice" id="ts-capture-fullpage">
           <div class="ts-page-choice-main">
-            <span class="ts-page-choice-label" style="display:flex;align-items:center;gap:6px;">${ICONS.scrollPage}<span>Toda la página a lo largo</span></span>
+            <span class="ts-page-choice-label" style="display:flex;align-items:center;gap:6px;">${ICONS.scrollPage}<span>${t('pageFullLabel')}</span></span>
             <span class="ts-page-choice-sub" id="ts-fullpage-dims">1440 × 4200 px</span>
           </div>
           ${ICONS.chevronRight}
@@ -115,12 +124,12 @@
       <div class="ts-gallery">
         <div class="ts-gallery-header">
           <div class="ts-gallery-title">
-            <span>Capturas guardadas</span>
+            <span>${t('galleryTitle')}</span>
             <span class="ts-count" id="ts-gallery-count">0</span>
           </div>
           <div class="ts-gallery-actions">
-            <button type="button" class="ts-btn-danger" id="ts-clear-all">Vaciar todo</button>
-            <button type="button" class="ts-btn ts-btn-close" id="ts-close-gallery" title="Cerrar historial">${ICONS.close}</button>
+            <button type="button" class="ts-btn-danger" id="ts-clear-all">${t('clearAll')}</button>
+            <button type="button" class="ts-btn ts-btn-close" id="ts-close-gallery" title="${t('closeGalleryTitle')}">${ICONS.close}</button>
           </div>
         </div>
         <div class="ts-gallery-body" id="ts-gallery-body"></div>
@@ -128,25 +137,25 @@
 
       <div class="ts-hud">
         <div class="ts-hud-group">
-          <button type="button" class="ts-btn active" id="ts-mode-element" title="Clic para fijar elemento; scroll normal cuando no está fijado">
-            ${ICONS.target}<span>Elemento</span>
+          <button type="button" class="ts-btn active" id="ts-mode-element" title="${t('modeElementTitle')}">
+            ${ICONS.target}<span>${t('modeElement')}</span>
           </button>
-          <button type="button" class="ts-btn" id="ts-mode-area" title="Seleccionar recuadro libre">
-            ${ICONS.crop}<span>Recuadro</span>
+          <button type="button" class="ts-btn" id="ts-mode-area" title="${t('modeAreaTitle')}">
+            ${ICONS.crop}<span>${t('modeArea')}</span>
           </button>
-          <button type="button" class="ts-btn" id="ts-mode-page" title="Capturar vista actual o toda la página a lo largo">
-            ${ICONS.page}<span>Página</span>
+          <button type="button" class="ts-btn" id="ts-mode-page" title="${t('modePageTitle')}">
+            ${ICONS.page}<span>${t('modePage')}</span>
           </button>
         </div>
         <div class="ts-divider"></div>
-        <button type="button" class="ts-btn ts-btn-info on" id="ts-toggle-info" title="Mostrar/ocultar etiqueta técnica en pantalla y en la imagen">
-          <span class="ts-dot"></span><span>Info: ON</span>
+        <button type="button" class="ts-btn ts-btn-info on" id="ts-toggle-info" title="${t('infoTitle')}">
+          <span class="ts-dot"></span><span>${t('infoOn')}</span>
         </button>
-        <button type="button" class="ts-btn" id="ts-toggle-gallery" title="Ver capturas guardadas localmente">
-          ${ICONS.history}<span>Historial</span><span class="ts-count" id="ts-hud-count">0</span>
+        <button type="button" class="ts-btn" id="ts-toggle-gallery" title="${t('historyTitle')}">
+          ${ICONS.history}<span>${t('historyLabel')}</span><span class="ts-count" id="ts-hud-count">0</span>
         </button>
         <div class="ts-divider"></div>
-        <button type="button" class="ts-btn ts-btn-close" id="ts-close-hud" title="Cerrar (o clic derecho)">${ICONS.close}</button>
+        <button type="button" class="ts-btn ts-btn-close" id="ts-close-hud" title="${t('closeHudTitle')}">${ICONS.close}</button>
       </div>
 
       <div class="ts-toast" id="ts-toast">
@@ -287,20 +296,20 @@
       e.stopPropagation();
       if (!state.confirmClear) {
         state.confirmClear = true;
-        els.clearAllBtn.textContent = '¿Confirmar borrar todo?';
+        els.clearAllBtn.textContent = t('confirmClearAll');
         setTimeout(() => {
           state.confirmClear = false;
-          if (els.clearAllBtn) els.clearAllBtn.textContent = 'Vaciar todo';
+          if (els.clearAllBtn) els.clearAllBtn.textContent = t('clearAll');
         }, 2500);
         return;
       }
       state.confirmClear = false;
-      els.clearAllBtn.textContent = 'Vaciar todo';
+      els.clearAllBtn.textContent = t('clearAll');
       await sendRuntimeMessage({ type: 'TECHSNAP_CLEAR_CAPTURES' });
       state.captureCount = 0;
       syncUIState();
       renderGallery([]);
-      showToast('Historial vaciado');
+      showToast(t('toastCleared'));
     });
 
     // Area mode backdrop events
@@ -348,7 +357,7 @@
     els.modePageBtn.classList.toggle('active', state.pagePopoverOpen);
 
     els.infoBtn.classList.toggle('on', state.infoEnabled);
-    els.infoBtn.querySelector('span:last-child').textContent = state.infoEnabled ? 'Info: ON' : 'Info: OFF';
+    els.infoBtn.querySelector('span:last-child').textContent = state.infoEnabled ? t('infoOn') : t('infoOff');
 
     els.galleryBtn.classList.toggle('active', state.galleryOpen);
     els.gallery.classList.toggle('open', state.galleryOpen);
@@ -403,7 +412,7 @@
       state.pagePopoverOpen = false;
     }
     state.confirmClear = false;
-    if (els.clearAllBtn) els.clearAllBtn.textContent = 'Vaciar todo';
+    if (els.clearAllBtn) els.clearAllBtn.textContent = t('clearAll');
     syncUIState();
     if (open) {
       await refreshGallery();
@@ -433,7 +442,7 @@
     if (!items.length) {
       const empty = document.createElement('div');
       empty.className = 'ts-empty';
-      empty.textContent = 'No hay capturas guardadas aún. Haz clic en cualquier elemento, traza un recuadro o usa 🌐 Página.';
+      empty.textContent = t('galleryEmpty');
       els.galleryBody.appendChild(empty);
       return;
     }
@@ -473,18 +482,18 @@
       const copyBtn = document.createElement('button');
       copyBtn.type = 'button';
       copyBtn.className = 'ts-card-btn';
-      copyBtn.innerHTML = `${ICONS.copy}<span>Copiar</span>`;
+      copyBtn.innerHTML = `${ICONS.copy}<span>${t('copyBtn')}</span>`;
       copyBtn.addEventListener('click', async (e) => {
         e.stopPropagation();
         const ok = await copyDataUrlToClipboard(item.dataUrl);
-        copyBtn.innerHTML = ok ? `<span>✓ Copiado</span>` : `<span>Error</span>`;
-        setTimeout(() => { copyBtn.innerHTML = `${ICONS.copy}<span>Copiar</span>`; }, 1200);
+        copyBtn.innerHTML = ok ? `<span>${t('copiedBtn')}</span>` : `<span>${t('errorBtn')}</span>`;
+        setTimeout(() => { copyBtn.innerHTML = `${ICONS.copy}<span>${t('copyBtn')}</span>`; }, 1200);
       });
 
       const dlBtn = document.createElement('button');
       dlBtn.type = 'button';
       dlBtn.className = 'ts-card-btn';
-      dlBtn.innerHTML = `${ICONS.download}<span>PNG</span>`;
+      dlBtn.innerHTML = `${ICONS.download}<span>${t('downloadBtn')}</span>`;
       dlBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         downloadDataUrl(item.dataUrl, buildFilename(item));
@@ -493,7 +502,7 @@
       const delBtn = document.createElement('button');
       delBtn.type = 'button';
       delBtn.className = 'ts-card-btn delete';
-      delBtn.title = 'Eliminar captura';
+      delBtn.title = t('deleteBtnTitle');
       delBtn.innerHTML = ICONS.trash;
       delBtn.addEventListener('click', async (e) => {
         e.stopPropagation();
@@ -729,7 +738,7 @@
       const rect = { ...state.areaRect };
       resetAreaSelection();
       if (rect.width >= 6 && rect.height >= 6) {
-        captureRect(rect, `Área libre • ${location.hostname || 'local'}`, 'area');
+        captureRect(rect, `${t('areaFreeLabel')} • ${location.hostname || 'local'}`, 'area');
       }
       return;
     }
@@ -757,7 +766,7 @@
     const rect = { ...state.areaRect };
     resetAreaSelection();
     if (rect.width >= 6 && rect.height >= 6) {
-      captureRect(rect, `Área libre • ${location.hostname || 'local'}`, 'area');
+      captureRect(rect, `${t('areaFreeLabel')} • ${location.hostname || 'local'}`, 'area');
     }
   }
 
@@ -822,9 +831,9 @@
       const w = Math.round(rect.width);
       const h = Math.round(rect.height);
 
-      els.badgeSelector.textContent = state.infoEnabled ? selector : 'Elemento fijado';
+      els.badgeSelector.textContent = state.infoEnabled ? selector : t('pinnedFallbackLabel');
       els.badgeDims.textContent = `${w} × ${h} px`;
-      els.badgeHint.textContent = isPinned ? '• Rueda: Padre/Hijo' : '• Clic: Fijar';
+      els.badgeHint.textContent = isPinned ? t('hintWheelZoom') : t('hintClickPin');
 
       if (isPinned) {
         const hasParent = Boolean(el.parentElement && el.parentElement !== document.documentElement);
@@ -861,9 +870,9 @@
 
     if (width > 4 && height > 4) {
       els.badge.classList.remove('pinned');
-      els.badgeSelector.textContent = state.infoEnabled ? 'Área libre' : '';
+      els.badgeSelector.textContent = state.infoEnabled ? t('areaFreeLabel') : '';
       els.badgeDims.textContent = `${Math.round(width)} × ${Math.round(height)} px`;
-      els.badgeHint.textContent = state.areaTwoClickArmed ? '• Clic para capturar' : '';
+      els.badgeHint.textContent = state.areaTwoClickArmed ? t('hintClickCapture') : '';
       els.badge.classList.add('visible');
       positionBadge({ left, top, right, bottom, width, height });
     } else {
@@ -934,7 +943,7 @@
     const height = bottom - top;
 
     if (width < 2 || height < 2) {
-      showToast('Elemento fuera de la vista', null, true);
+      showToast(t('toastOutOfView'), null, true);
       return;
     }
 
@@ -949,7 +958,7 @@
       width: window.innerWidth,
       height: window.innerHeight
     };
-    const selector = `🖥️ Vista actual • ${location.hostname || 'local'}`;
+    const selector = `${t('viewportLabel')} • ${location.hostname || 'local'}`;
     await captureRect(rect, selector, 'viewport');
   }
 
@@ -976,7 +985,7 @@
       const totalHeight = Math.min(MAX_FULLPAGE_CSS_HEIGHT, rawTotalHeight);
       const wasCapped = rawTotalHeight > MAX_FULLPAGE_CSS_HEIGHT;
 
-      showToast(`Capturando página completa (${vw} × ${totalHeight} px)…`);
+      showToast(t('toastCapturingFullpage', [String(vw), String(totalHeight)]));
 
       // Hide HUD completely during scroll & stitch
       host.setAttribute('data-capturing', 'true');
@@ -1050,7 +1059,7 @@
       document.documentElement.style.scrollBehavior = origScrollBehavior;
       host.removeAttribute('data-capturing');
 
-      const selector = `📜 Página completa • ${location.hostname || 'local'}`;
+      const selector = `${t('fullpageLabel')} • ${location.hostname || 'local'}`;
       const finalCanvas = state.infoEnabled
         ? stampFooterOnCanvas(masterCanvas, selector, vw, totalHeight, scaleX, scaleY)
         : masterCanvas;
@@ -1077,11 +1086,11 @@
         syncUIState();
       }
 
-      const capNote = wasCapped ? ` (máx ${MAX_FULLPAGE_CSS_HEIGHT}px)` : '';
+      const capNote = wasCapped ? t('toastCappedNote', [String(MAX_FULLPAGE_CSS_HEIGHT)]) : '';
       showToast(
         copied
-          ? `✓ Página completa copiada y guardada${capNote}`
-          : `✓ Página completa guardada en historial${capNote}`,
+          ? t('toastFullpageCopied', [capNote])
+          : t('toastFullpageSaved', [capNote]),
         finalDataUrl,
         false
       );
@@ -1092,7 +1101,7 @@
       window.scrollTo(origX, origY);
       document.documentElement.style.scrollBehavior = origScrollBehavior;
       host.removeAttribute('data-capturing');
-      showToast(`Error en captura completa: ${err?.message || err}`, null, true);
+      showToast(t('toastFullpageError', [err?.message || String(err)]), null, true);
     } finally {
       state.isCapturingFullPage = false;
     }
@@ -1108,7 +1117,7 @@
       host.removeAttribute('data-capturing');
 
       if (!capRes?.ok || !capRes.dataUrl) {
-        showToast(capRes?.error || 'No se pudo capturar la pestaña', null, true);
+        showToast(capRes?.error || t('toastCaptureFail'), null, true);
         return;
       }
 
@@ -1135,13 +1144,13 @@
       }
 
       showToast(
-        copied ? '✓ Copiado al portapapeles y guardado' : '✓ Guardado en historial (clic en Copiar si falló foco)',
+        copied ? t('toastCopiedSaved') : t('toastSavedOnly'),
         finalDataUrl,
         false
       );
     } catch (err) {
       host.removeAttribute('data-capturing');
-      showToast(`Error al capturar: ${err?.message || err}`, null, true);
+      showToast(t('toastErrorCapture', [err?.message || String(err)]), null, true);
     }
   }
 

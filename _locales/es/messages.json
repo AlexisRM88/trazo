@@ -1,0 +1,183 @@
+{
+  "extName": {
+    "message": "Trazo — Screenshot Técnico"
+  },
+  "extDescription": {
+    "message": "Screenshots técnicos a una sola mano: inspecciona elementos DOM con zoom padre/hijo, recorte libre, página completa, etiqueta CSS opcional y galería local. Por Cabuya Creativa & Alexis Roman."
+  },
+  "actionTitle": {
+    "message": "Activar Trazo (1 clic)"
+  },
+  "modeElement": {
+    "message": "Elemento"
+  },
+  "modeElementTitle": {
+    "message": "Clic para fijar elemento; scroll normal cuando no está fijado"
+  },
+  "modeArea": {
+    "message": "Recuadro"
+  },
+  "modeAreaTitle": {
+    "message": "Seleccionar recuadro libre"
+  },
+  "modePage": {
+    "message": "Página"
+  },
+  "modePageTitle": {
+    "message": "Capturar vista actual o toda la página a lo largo"
+  },
+  "infoOn": {
+    "message": "Info: ON"
+  },
+  "infoOff": {
+    "message": "Info: OFF"
+  },
+  "infoTitle": {
+    "message": "Mostrar/ocultar etiqueta técnica en pantalla y en la imagen"
+  },
+  "historyLabel": {
+    "message": "Historial"
+  },
+  "historyTitle": {
+    "message": "Ver capturas guardadas localmente"
+  },
+  "closeHudTitle": {
+    "message": "Cerrar (o clic derecho)"
+  },
+  "pinParent": {
+    "message": "Padre"
+  },
+  "pinParentTitle": {
+    "message": "Subir al contenedor padre (Zoom out)"
+  },
+  "pinCapture": {
+    "message": "Capturar"
+  },
+  "pinCaptureTitle": {
+    "message": "Capturar este elemento ahora"
+  },
+  "pinChild": {
+    "message": "Hijo"
+  },
+  "pinChildTitle": {
+    "message": "Bajar al elemento hijo (Zoom in)"
+  },
+  "pinUnpinTitle": {
+    "message": "Soltar selección"
+  },
+  "pagePopoverTitle": {
+    "message": "Capturar página web"
+  },
+  "closeTitle": {
+    "message": "Cerrar"
+  },
+  "pageViewportLabel": {
+    "message": "Solo vista actual"
+  },
+  "pageFullLabel": {
+    "message": "Toda la página a lo largo"
+  },
+  "galleryTitle": {
+    "message": "Capturas guardadas"
+  },
+  "clearAll": {
+    "message": "Vaciar todo"
+  },
+  "confirmClearAll": {
+    "message": "¿Confirmar borrar todo?"
+  },
+  "closeGalleryTitle": {
+    "message": "Cerrar historial"
+  },
+  "galleryEmpty": {
+    "message": "No hay capturas guardadas aún. Haz clic en cualquier elemento, traza un recuadro o usa Página."
+  },
+  "copyBtn": {
+    "message": "Copiar"
+  },
+  "copiedBtn": {
+    "message": "✓ Copiado"
+  },
+  "errorBtn": {
+    "message": "Error"
+  },
+  "downloadBtn": {
+    "message": "PNG"
+  },
+  "deleteBtnTitle": {
+    "message": "Eliminar captura"
+  },
+  "pinnedFallbackLabel": {
+    "message": "Elemento fijado"
+  },
+  "hintWheelZoom": {
+    "message": "• Rueda: Padre/Hijo"
+  },
+  "hintClickPin": {
+    "message": "• Clic: Fijar"
+  },
+  "hintClickCapture": {
+    "message": "• Clic para capturar"
+  },
+  "areaFreeLabel": {
+    "message": "Área libre"
+  },
+  "viewportLabel": {
+    "message": "Vista actual"
+  },
+  "fullpageLabel": {
+    "message": "Página completa"
+  },
+  "toastCleared": {
+    "message": "Historial vaciado"
+  },
+  "toastOutOfView": {
+    "message": "Elemento fuera de la vista"
+  },
+  "toastCaptureFail": {
+    "message": "No se pudo capturar la pestaña"
+  },
+  "toastCopiedSaved": {
+    "message": "✓ Copiado al portapapeles y guardado"
+  },
+  "toastSavedOnly": {
+    "message": "✓ Guardado en historial (clic en Copiar si falló foco)"
+  },
+  "toastErrorCapture": {
+    "message": "Error al capturar: $DETAIL$",
+    "placeholders": {
+      "detail": { "content": "$1" }
+    }
+  },
+  "toastCapturingFullpage": {
+    "message": "Capturando página completa ($WIDTH$ × $HEIGHT$ px)…",
+    "placeholders": {
+      "width": { "content": "$1" },
+      "height": { "content": "$2" }
+    }
+  },
+  "toastFullpageCopied": {
+    "message": "✓ Página completa copiada y guardada$NOTE$",
+    "placeholders": {
+      "note": { "content": "$1" }
+    }
+  },
+  "toastFullpageSaved": {
+    "message": "✓ Página completa guardada en historial$NOTE$",
+    "placeholders": {
+      "note": { "content": "$1" }
+    }
+  },
+  "toastFullpageError": {
+    "message": "Error en captura completa: $DETAIL$",
+    "placeholders": {
+      "detail": { "content": "$1" }
+    }
+  },
+  "toastCappedNote": {
+    "message": " (máx $MAX$px)",
+    "placeholders": {
+      "max": { "content": "$1" }
+    }
+  }
+}

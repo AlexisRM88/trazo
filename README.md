@@ -1,79 +1,85 @@
-# Trazo — Screenshot Técnico para Google Chrome
+# Trazo — Technical Screenshot for Google Chrome
 
-> Extensión minimalista **Manifest V3** diseñada para capturar screenshots técnicos **100% con una sola mano (solo mouse)**.  
-> Una aportación open source de **Cabuya Creativa** & **Alexis Roman**.
+[🇪🇸 Leer en Español](README.es.md)
 
----
-
-## Características principales
-
-- **Operación a una sola mano (Solo Mouse)**: Activa la herramienta con un clic en el icono de la extensión y controla todo sin tocar el teclado.
-- **Modo `Elemento` (Scroll libre + Pin & Zoom)**:
-  - Desplázate por cualquier página con el scroll normal del mouse o trackpad.
-  - **1er clic** sobre un bloque para **fijarlo** y abrir la micro-barra flotante (`Padre` / `Capturar` / `Hijo`).
-  - Usa la rueda del mouse o los botones `Padre` / `Hijo` para ajustar exactamente el contenedor que quieres capturar.
-  - **2do clic** directo sobre el bloque fijado para capturar al instante.
-- **Modo `Recuadro` (Área libre)**:
-  - Soporta **clic y arrastrar** o **dos clics** (esquina inicial → esquina final).
-- **Modo `Página` (Vista actual o Página completa)**:
-  - Elige entre capturar **Solo vista actual** o **Toda la página a lo largo** (scroll automático y unión en PNG de alta resolución, ocultando cabeceras `fixed`/`sticky` para evitar duplicados).
-- **Etiqueta técnica opcional (`Info: ON / OFF`)**:
-  - En **ON**: Muestra en vivo el selector CSS (`tag#id.clase`) y las dimensiones en `px`, y estampa una barra técnica limpia al pie de la imagen.
-  - En **OFF**: Genera capturas 100% limpias sin etiquetas.
-- **Auto-Copy + Historial local (`IndexedDB`)**:
-  - Cada captura se copia automáticamente al portapapeles (`image/png`) y se guarda en la memoria local del navegador (`IndexedDB`), con galería para volver a copiar, descargar en PNG o eliminar las que ya no necesites.
-- **Clic derecho contextual**: Suelta el elemento fijado, cancela el recuadro en curso o cierra **Trazo** cómodamente.
+> Minimalist **Manifest V3** Chrome extension built for **one-handed (mouse-only)** technical screenshots.  
+> An open-source contribution by **Cabuya Creativa** & **Alexis Roman**.
 
 ---
 
-## Cómo obtener e instalar Trazo en Google Chrome
+## Key Features
 
-### Opción 1: Descargar ZIP desde GitHub (más rápido)
-1. En este repositorio, haz clic en el botón verde **`<> Code`** → **`Download ZIP`**.
-2. Descomprime el archivo `.zip` en una carpeta fija de tu computadora (por ejemplo `Documentos/Trazo`).
+- **Automatic Bilingual Support (EN / ES)**: Automatically adapts to your Chrome browser language via `chrome.i18n` (`_locales/en` & `_locales/es`).
+- **One-Handed Operation (Mouse Only)**: Activate with one click on the extension icon and control everything without touching the keyboard.
+- **`Element` Mode (Natural Scroll + Pin & Zoom)**:
+  - Scroll any webpage naturally with your mouse wheel or trackpad.
+  - **1st click** on any element to **pin** it and open the floating micro-bar (`Parent` / `Capture` / `Child`).
+  - Use the mouse wheel or `Parent` / `Child` buttons to zoom out/in across the DOM tree until you highlight the exact container.
+  - **2nd click** directly on the pinned element to capture immediately.
+- **`Area` Mode (Free Rectangle)**:
+  - Supports both **click-and-drag** and **two-click** selection (start corner → end corner).
+- **`Page` Mode (Current View or Full Page)**:
+  - Choose between capturing **Current view only** or **Full page (scroll & stitch)** in a single high-DPI PNG, automatically hiding `fixed`/`sticky` headers after the first slice to prevent duplicates.
+- **Optional Technical Badge (`Info: ON / OFF`)**:
+  - **ON**: Shows the live CSS selector (`tag#id.class`) and dimensions (`px`), and stamps a clean technical footer bar at the bottom of the captured PNG.
+  - **OFF**: Outputs 100% clean screenshots with no labels.
+- **Auto-Copy + Local History (`IndexedDB`)**:
+  - Every screenshot is automatically copied to your clipboard (`image/png`) and saved locally in `IndexedDB` with a built-in gallery to re-copy, download as PNG, or delete items.
+- **Right-click shortcut**: Unpin the active element, cancel a rectangle, or close **Trazo** effortlessly.
 
-### Opción 2: Clonar con Git
+---
+
+## How to Get & Install Trazo in Google Chrome
+
+### Option 1: Download ZIP from GitHub (Fastest)
+1. Click the green **`<> Code`** button in this repository → **`Download ZIP`**.
+2. Unzip the file into a permanent folder on your computer (e.g. `Documents/Trazo`).
+
+### Option 2: Clone with Git
 ```bash
 git clone https://github.com/AlexisRM88/trazo.git
 ```
 
-### Cargar la extensión en Google Chrome
-1. Abre una nueva pestaña en Google Chrome y entra a:
+### Load the Extension in Google Chrome
+1. Open a new tab in Google Chrome and navigate to:
    ```text
    chrome://extensions
    ```
-2. Activa el interruptor **Modo de desarrollador** (esquina superior derecha).
-3. Haz clic en el botón **Cargar descomprimida** (*Load unpacked*).
-4. Selecciona la carpeta del proyecto (`trazo`).
-5. *(Opcional recomendado)* Haz clic en el icono de **rompecabezas (Extensiones)** en la barra superior de Chrome y fija **Trazo** con el pin para activarlo siempre con 1 clic.
+2. Enable **Developer mode** (top-right toggle).
+3. Click **Load unpacked**.
+4. Select the project folder (`trazo`).
+5. *(Recommended)* Click the **Extensions (puzzle)** icon in Chrome's toolbar and pin **Trazo** for 1-click access.
 
 ---
 
-## Cómo usar Trazo
+## How to Use Trazo
 
-1. Navega a cualquier sitio web y haz clic en el icono de **Trazo** en tu barra de Chrome.
-2. Elige el modo en la barra inferior flotante:
-   - **`Elemento`**: Pasa el cursor, haz clic para fijar un bloque, ajusta `Padre` / `Hijo` si lo necesitas y presiona **`Capturar`** (o haz clic de nuevo sobre el bloque).
-   - **`Recuadro`**: Traza un rectángulo libre sobre cualquier zona de la pantalla.
-   - **`Página`**: Elige entre **Solo vista actual** o **Toda la página a lo largo**.
-3. Pega tu captura directamente (`Cmd + V` / `Ctrl + V`) en Slack, Notion, Figma, Jira o donde la necesites, o revisa tus capturas previas en **`Historial`**.
+1. Open any webpage and click the **Trazo** icon in your Chrome toolbar.
+2. Pick a mode from the floating bottom HUD:
+   - **`Element`**: Hover, click to pin a block, adjust `Parent` / `Child` if needed, and click **`Capture`** (or click the pinned block again).
+   - **`Area`**: Draw a free rectangle over any part of the screen.
+   - **`Page`**: Choose **Current view only** or **Full page (scroll & stitch)**.
+3. Paste directly (`Cmd + V` / `Ctrl + V`) into Slack, Notion, Figma, Jira, or browse saved shots in **`History`**.
 
 ---
 
-## Estructura del proyecto
+## Project Structure
 
 ```text
-├── manifest.json   # Configuración Manifest V3
-├── background.js   # Service Worker (inyección, captureVisibleTab y mensajería)
-├── storage.js      # Persistencia local en IndexedDB (TechSnapDB)
-├── content.js      # HUD en Shadow DOM, inspector DOM, recorte y stitch
-├── content.css     # Estilos encapsulados de la interfaz
-└── icons/          # Iconos PNG de la extensión (16, 32, 48, 128 px)
+├── _locales/
+│   ├── en/messages.json   # English localization
+│   └── es/messages.json   # Spanish localization
+├── manifest.json          # Manifest V3 configuration
+├── background.js          # Service Worker (injection, captureVisibleTab & messaging)
+├── storage.js             # IndexedDB local persistence
+├── content.js             # Shadow DOM HUD, DOM inspector, cropper & full-page stitch
+├── content.css            # Encapsulated UI styles
+└── icons/                 # Extension PNG icons (16, 32, 48, 128 px)
 ```
 
 ---
 
-## Licencia y Autoría
+## License & Credits
 
-Publicado bajo licencia **MIT** — ver [LICENSE](LICENSE).  
-Desarrollado y compartido como aportación a la comunidad por **Cabuya Creativa** & **Alexis Roman**.
+Released under the **MIT License** — see [LICENSE](LICENSE).  
+Built and shared with the community by **Cabuya Creativa** & **Alexis Roman**.

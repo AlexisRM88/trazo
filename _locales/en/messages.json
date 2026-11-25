@@ -1,0 +1,183 @@
+{
+  "extName": {
+    "message": "Trazo — Technical Screenshot"
+  },
+  "extDescription": {
+    "message": "One-handed technical screenshots: inspect DOM elements with parent/child zoom, free area crop, full-page capture, optional CSS badge & local gallery. By Cabuya Creativa & Alexis Roman."
+  },
+  "actionTitle": {
+    "message": "Toggle Trazo (1 click)"
+  },
+  "modeElement": {
+    "message": "Element"
+  },
+  "modeElementTitle": {
+    "message": "Click to pin element; normal page scroll when unpinned"
+  },
+  "modeArea": {
+    "message": "Area"
+  },
+  "modeAreaTitle": {
+    "message": "Select free rectangle area"
+  },
+  "modePage": {
+    "message": "Page"
+  },
+  "modePageTitle": {
+    "message": "Capture current view or full page"
+  },
+  "infoOn": {
+    "message": "Info: ON"
+  },
+  "infoOff": {
+    "message": "Info: OFF"
+  },
+  "infoTitle": {
+    "message": "Show/hide technical badge on screen and in captured image"
+  },
+  "historyLabel": {
+    "message": "History"
+  },
+  "historyTitle": {
+    "message": "View locally saved captures"
+  },
+  "closeHudTitle": {
+    "message": "Close (or right-click)"
+  },
+  "pinParent": {
+    "message": "Parent"
+  },
+  "pinParentTitle": {
+    "message": "Move up to parent container (Zoom out)"
+  },
+  "pinCapture": {
+    "message": "Capture"
+  },
+  "pinCaptureTitle": {
+    "message": "Capture this element now"
+  },
+  "pinChild": {
+    "message": "Child"
+  },
+  "pinChildTitle": {
+    "message": "Move down to child element (Zoom in)"
+  },
+  "pinUnpinTitle": {
+    "message": "Unpin selection"
+  },
+  "pagePopoverTitle": {
+    "message": "Capture web page"
+  },
+  "closeTitle": {
+    "message": "Close"
+  },
+  "pageViewportLabel": {
+    "message": "Current view only"
+  },
+  "pageFullLabel": {
+    "message": "Full page (scroll & stitch)"
+  },
+  "galleryTitle": {
+    "message": "Saved captures"
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "confirmClearAll": {
+    "message": "Confirm clear all?"
+  },
+  "closeGalleryTitle": {
+    "message": "Close history"
+  },
+  "galleryEmpty": {
+    "message": "No captures saved yet. Click any element, draw a rectangle, or use Page."
+  },
+  "copyBtn": {
+    "message": "Copy"
+  },
+  "copiedBtn": {
+    "message": "✓ Copied"
+  },
+  "errorBtn": {
+    "message": "Error"
+  },
+  "downloadBtn": {
+    "message": "PNG"
+  },
+  "deleteBtnTitle": {
+    "message": "Delete capture"
+  },
+  "pinnedFallbackLabel": {
+    "message": "Pinned element"
+  },
+  "hintWheelZoom": {
+    "message": "• Wheel: Parent/Child"
+  },
+  "hintClickPin": {
+    "message": "• Click: Pin"
+  },
+  "hintClickCapture": {
+    "message": "• Click to capture"
+  },
+  "areaFreeLabel": {
+    "message": "Free area"
+  },
+  "viewportLabel": {
+    "message": "Current view"
+  },
+  "fullpageLabel": {
+    "message": "Full page"
+  },
+  "toastCleared": {
+    "message": "History cleared"
+  },
+  "toastOutOfView": {
+    "message": "Element is outside the viewport"
+  },
+  "toastCaptureFail": {
+    "message": "Could not capture tab"
+  },
+  "toastCopiedSaved": {
+    "message": "✓ Copied to clipboard & saved"
+  },
+  "toastSavedOnly": {
+    "message": "✓ Saved to history (click Copy if focus failed)"
+  },
+  "toastErrorCapture": {
+    "message": "Capture error: $DETAIL$",
+    "placeholders": {
+      "detail": { "content": "$1" }
+    }
+  },
+  "toastCapturingFullpage": {
+    "message": "Capturing full page ($WIDTH$ × $HEIGHT$ px)…",
+    "placeholders": {
+      "width": { "content": "$1" },
+      "height": { "content": "$2" }
+    }
+  },
+  "toastFullpageCopied": {
+    "message": "✓ Full page copied & saved$NOTE$",
+    "placeholders": {
+      "note": { "content": "$1" }
+    }
+  },
+  "toastFullpageSaved": {
+    "message": "✓ Full page saved to history$NOTE$",
+    "placeholders": {
+      "note": { "content": "$1" }
+    }
+  },
+  "toastFullpageError": {
+    "message": "Full page capture error: $DETAIL$",
+    "placeholders": {
+      "detail": { "content": "$1" }
+    }
+  },
+  "toastCappedNote": {
+    "message": " (max $MAX$px)",
+    "placeholders": {
+      "max": { "content": "$1" }
+    }
+  }
+}
